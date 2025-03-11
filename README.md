@@ -1,11 +1,47 @@
-<<<<<<< HEAD
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+SchoolED
+Welcome to SchoolED! We are an innovative educational services platform dedicated to enhancing the educational experience through quality products and services.
 
-## Getting Started
+About Us
+Founded by Mr. BM Nkuna in 2010, SchoolED has grown from a small uniform supplier to a comprehensive educational service provider. We are committed to providing high-quality products and services to schools across South Africa.
 
-First, run the development server:
+Our Mission
+At SchoolED, our mission is to enhance the educational experience through quality products and services that allow schools to focus on their core mission of teaching and learning.
 
-```bash
+Our Services
+SchoolED offers a wide range of services to meet the diverse needs of educational institutions:
+
+Custom school uniforms
+
+Modern school websites
+
+Tracksuits and sportswear
+
+Matric jackets
+
+Matric dance suits
+
+Event photography
+
+Kids nametags
+
+Sponsor a child program
+
+Technologies We Use
+Our platform is built using cutting-edge technologies to ensure a seamless user experience:
+
+Next.js: A powerful React framework for building fast and scalable web applications.
+
+Framer Motion: An open-source library for animations in React applications.
+
+Tailwind CSS: A utility-first CSS framework for rapid UI development.
+
+Getting Started
+This is a Next.js project bootstrapped with create-next-app.
+
+Run the development server
+To get started, run the development server:
+
+bash
 npm run dev
 # or
 yarn dev
@@ -13,29 +49,29 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+Open http://localhost:3000 with your browser to see the result.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+You can start editing the page by modifying app/page.tsx. The page auto-updates as you edit the file.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
+Learn More
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js Documentation - learn about Next.js features and API.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Learn Next.js - an interactive Next.js tutorial.
 
-## Deploy on Vercel
+You can check out the Next.js GitHub repository - your feedback and contributions are welcome!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy on Vercel
+The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js..
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-=======
-# eluapp
-is an ongoing platform for a clinic based in south africa that must be intergrated into www.afyarekod.com and digitalize its platform
->>>>>>> c6f9cbaa70b28f899fb5475e7a39ca4ad31c95cc
+Check out our Next.js deployment documentation for more details.
+
+Contact Us
+For more information or inquiries, please contact us at:
+
+Email: info@schoolED.com
+
+Phone: +27 11 123 4567
+
+Address: 123 SchoolED Street, Johannesburg, South Africa
