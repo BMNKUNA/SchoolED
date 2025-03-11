@@ -1,4 +1,6 @@
-import { ArrowRight, Calendar, Clock, MapPin, Phone } from 'lucide-react'
+'use client'
+
+import { ArrowRight, Phone, MapPin, Clock, Calendar } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -16,7 +18,7 @@ export default function ContactPage() {
       <Navigation />
 
       <main className="pt-16">
-        <section id="contact" className="py-32 bg-pink-800 text-white">
+        <section id="contact" className="py-32 bg-blue-800 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
@@ -24,11 +26,11 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div className="flex items-center space-x-4">
                     <Phone className="h-6 w-6" />
-                    <span>+27 (0) 11 382 0466</span>
+                    <span>+27 (0) 12 345 6789</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <MapPin className="h-6 w-6" />
-                    <span>1951 Ikhethini Str, Mailula Park, Vosloorus, South Africa</span>
+                    <span>123 School Street, Education District, Johannesburg, South Africa</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <Clock className="h-6 w-6" />
@@ -36,13 +38,13 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-center space-x-4">
                     <Calendar className="h-6 w-6" />
-                    <span>Emergency services available 24/7</span>
+                    <span>Closed on public holidays</span>
                   </div>
                 </div>
               </div>
               <Card className="bg-white text-gray-900">
                 <CardHeader>
-                  <CardTitle>Send Us a Message</CardTitle>
+                  <CardTitle>Request a Quote</CardTitle>
                   <CardDescription>Fill out the form below and we&apos;ll get back to you</CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -62,10 +64,28 @@ export default function ContactPage() {
                       <input type="email" className="w-full px-3 py-2 border rounded-md" />
                     </div>
                     <div className="space-y-2">
+                      <label className="text-sm font-medium">School/Organization</label>
+                      <input type="text" className="w-full px-3 py-2 border rounded-md" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium">Service Interested In</label>
+                      <select className="w-full px-3 py-2 border rounded-md">
+                        <option value="">Select a service</option>
+                        <option value="uniforms">School Uniforms</option>
+                        <option value="websites">School Websites</option>
+                        <option value="tracksuits">Tracksuits</option>
+                        <option value="matric-jackets">Matric Jackets</option>
+                        <option value="matric-dance">Matric Dance Suits</option>
+                        <option value="photography">Event Photography</option>
+                        <option value="nametags">Kids Nametags</option>
+                        <option value="sponsor">Sponsor a Child</option>
+                      </select>
+                    </div>
+                    <div className="space-y-2">
                       <label className="text-sm font-medium">Message</label>
                       <textarea className="w-full px-3 py-2 border rounded-md" rows={4}></textarea>
                     </div>
-                    <Button className="w-full bg-pink-800 hover:bg-pink-700">
+                    <Button className="w-full bg-blue-800 hover:bg-blue-700">
                       Send Message
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>

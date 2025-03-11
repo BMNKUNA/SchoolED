@@ -17,37 +17,37 @@ export function Navigation() {
             <Link href="/" className="flex items-center space-x-2">
               <Image 
                 src="/images/logo.png"
-                alt="Eluthandweni Clinic Logo" 
+                alt="SchoolED Logo" 
                 width={110}
                 height={60}
                 className="rounded-full"
                 priority
               />
-              <span className="text-xl font-bold">Eluthandweni Clinic</span>
+              <span className="text-xl font-bold">School<span className="text-green-600">ED</span></span>
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
               Home
             </Link>
             <Link
               href="/services"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/services' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/services' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
               Services
             </Link>
             <Link
               href="/about"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/about' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/about' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/contact' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/contact' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
               Contact
             </Link>
@@ -55,12 +55,12 @@ export function Navigation() {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/login"
-              className={`text-gray-600 hover:text-pink-800 transition-colors ${pathname === '/login' ? 'bg-pink-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/login' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
             >
               Login
             </Link>
             <Link href="/contact">
-              <Button className="bg-pink-800 hover:bg-pink-700">Enquire</Button>
+              <Button className="bg-blue-800 hover:bg-blue-700">Get a Quote</Button>
             </Link>
           </div>
           <HamburgerMenu />

@@ -40,7 +40,7 @@ export function HamburgerMenu() {
     <div className="md:hidden">
       <Button
         variant="ghost"
-        className="p-2 text-pink-800"
+        className="p-2 text-blue-800"
         onClick={toggleMenu}
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
@@ -82,14 +82,14 @@ export function HamburgerMenu() {
                 <Link href="/" className="flex items-center space-x-2">
                   <Image 
                     src="/images/logo.png"
-                    alt="Eluthandweni Clinic Logo"
+                    alt="SchoolED Logo"
                     width={80}
                     height={44}
                     className="rounded-full"
                   />
-                  <span className="text-xl font-bold text-pink-800">Eluthandweni Clinic</span>
+                  <span className="text-xl font-bold">School<span className="text-green-600">ED</span></span>
                 </Link>
-                <Button variant="ghost" className="p-2 text-pink-800" onClick={toggleMenu}>
+                <Button variant="ghost" className="p-2 text-blue-800" onClick={toggleMenu}>
                   <svg
                     className="w-6 h-6"
                     fill="none"
@@ -110,7 +110,7 @@ export function HamburgerMenu() {
                 <Link
                   href="/"
                   className={`text-xl font-semibold ${
-                    pathname === '/' ? 'text-pink-800' : 'text-gray-600'
+                    pathname === '/' ? 'text-blue-800' : 'text-gray-600'
                   }`}
                 >
                   Home
@@ -118,7 +118,7 @@ export function HamburgerMenu() {
                 <Link
                   href="/services"
                   className={`text-xl font-semibold ${
-                    pathname === '/services' ? 'text-pink-800' : 'text-gray-600'
+                    pathname === '/services' ? 'text-blue-800' : 'text-gray-600'
                   }`}
                 >
                   Services
@@ -126,7 +126,7 @@ export function HamburgerMenu() {
                 <Link
                   href="/about"
                   className={`text-xl font-semibold ${
-                    pathname === '/about' ? 'text-pink-800' : 'text-gray-600'
+                    pathname === '/about' ? 'text-blue-800' : 'text-gray-600'
                   }`}
                 >
                   About
@@ -134,7 +134,7 @@ export function HamburgerMenu() {
                 <Link
                   href="/contact"
                   className={`text-xl font-semibold ${
-                    pathname === '/contact' ? 'text-pink-800' : 'text-gray-600'
+                    pathname === '/contact' ? 'text-blue-800' : 'text-gray-600'
                   }`}
                 >
                   Contact
@@ -142,7 +142,7 @@ export function HamburgerMenu() {
                 <Link
                   href="/login"
                   className={`text-xl font-semibold ${
-                    pathname === '/login' ? 'text-pink-800' : 'text-gray-600'
+                    pathname === '/login' ? 'text-blue-800' : 'text-gray-600'
                   }`}
                 >
                   Login
@@ -150,7 +150,7 @@ export function HamburgerMenu() {
               </nav>
               <div className="mt-auto">
                 <Link href="/contact">
-                  <Button className="w-full bg-pink-800 hover:bg-pink-700 text-white">Enquire</Button>
+                  <Button className="w-full bg-blue-800 hover:bg-blue-700 text-white">Get a Quote</Button>
                 </Link>
               </div>
             </div>
