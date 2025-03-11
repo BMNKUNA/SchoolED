@@ -1,4 +1,3 @@
-SchoolED
 Welcome to SchoolED! We are an innovative educational services platform dedicated to enhancing the educational experience through quality products and services.
 
 About Us
