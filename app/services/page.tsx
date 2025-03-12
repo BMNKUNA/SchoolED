@@ -161,7 +161,7 @@ export default function ServicesPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">CareerKids</h2>
-              <p className="text-xl text-gray-600">Inspiring children's future aspirations through role play</p>
+              <p className="text-xl text-gray-600">Inspiring children&apos;s future aspirations through role play</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="order-2 md:order-1">
@@ -215,7 +215,7 @@ export default function ServicesPage() {
                 <ul className="space-y-4">
                   <li className="flex items-start">
                     <Globe className="mr-2 h-6 w-6 text-green-600 flex-shrink-0" />
-                    <span>Custom design reflecting your school's identity</span>
+                    <span>Custom design reflecting your school&apos;s identity</span>
                   </li>
                   <li className="flex items-start">
                     <Globe className="mr-2 h-6 w-6 text-green-600 flex-shrink-0" />

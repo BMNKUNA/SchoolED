@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
@@ -105,7 +105,7 @@ export default function AboutPage() {
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="text-2xl font-bold mb-4">Jane Nkosi's Vision</h3>
+                <h3 className="text-2xl font-bold mb-4">Jane Nkosi&apos;s Vision</h3>
                 <p className="text-gray-600 mb-6">
                   Jane Nkosi started SchoolED after noticing the challenges schools faced in sourcing quality uniforms and educational materials. With a background in education and a passion for helping students succeed, Jane set out to create solutions that would make life easier for schools, teachers, and students alike.
                 </p>
@@ -113,7 +113,7 @@ export default function AboutPage() {
                   Her dedication to quality and service has established SchoolED as a trusted partner for educational institutions across South Africa.
                 </p>
                 <p className="text-gray-600">
-                  Under Jane's leadership, SchoolED continues to expand its offerings while maintaining its commitment to excellence and affordability.
+                  Under Jane&apos;s leadership, SchoolED continues to expand its offerings while maintaining its commitment to excellence and affordability.
                 </p>
               </div>
               <div>
@@ -217,7 +217,7 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-2xl font-bold mb-4">Quality Products</h3>
                 <p className="text-gray-600">
-                  We're committed to providing the highest quality products that are durable, comfortable, and represent your school with pride.
+                  We&apos;re committed to providing the highest quality products that are durable, comfortable, and represent your school with pride.
                 </p>
               </div>
               <div className="text-center p-8 bg-white rounded-lg shadow-md">

@@ -32,7 +32,7 @@ export default function ContactPage() {
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact SchoolED</h1>
             <p className="text-xl max-w-3xl mx-auto">
-              We're here to help with all your educational service needs
+              We&apos;re here to help with all your educational service needs
             </p>
           </div>
         </section>
@@ -157,7 +157,7 @@ export default function ContactPage() {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold mb-3">Can we see samples before ordering?</h3>
                 <p className="text-gray-600">
-                  We can provide samples of our uniforms, tracksuits, and other products. For websites, we can arrange demonstrations of similar projects we've completed.
+                  We can provide samples of our uniforms, tracksuits, and other products. For websites, we can arrange demonstrations of similar projects we&apos;ve completed.
                 </p>
               </div>
             </div>
