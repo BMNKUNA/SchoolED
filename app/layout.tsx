@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Eluthandweni Clinic',
-  description: 'Quality Healthcare for All', 
+  title: 'SchoolED',
+  description: 'Empowering Education Through Quality Services', 
 }
 
 export default function RootLayout({
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Link to favicon */}
-        <link rel="icon" href="/images/logo.jpg" type="image/jpeg" />
+        <link rel="icon" href="/images/schoolED.png" type="image/png" />
       </head>
       <body className={inter.className}>{children}</body>
     </html>

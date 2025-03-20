@@ -16,14 +16,14 @@ export function Navigation() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Image 
-                src="/images/logo.png"
+                src="/images/schoolED.png"
                 alt="SchoolED Logo" 
                 width={110}
                 height={60}
                 className="rounded-full"
                 priority
               />
-              <span className="text-xl font-bold">School<span className="text-green-600">ED</span></span>
+              <span className="text-xl font-bold">School<span className="text-blue-600">ED</span></span>
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">

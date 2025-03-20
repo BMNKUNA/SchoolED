@@ -178,7 +178,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #9b1d20; /* Tailwind's bg-pink-800 */
+  background-color: #383bec; /* Tailwind's bg-pink-800 */
   border-radius: 6px;
   border: 3px solid hsl(var(--background));
 }
