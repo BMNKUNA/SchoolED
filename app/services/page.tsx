@@ -1,4 +1,4 @@
-import { ArrowRight, GraduationCap, Shirt, Globe, Users, Camera, Tag, Heart } from 'lucide-react'
+import { ArrowRight, GraduationCap, Shirt, Globe, Camera, Tag, Heart } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
