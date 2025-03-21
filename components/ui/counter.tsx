@@ -1,74 +1,40 @@
-"use client";  // Mark as client component
+"use client"
 
-// Import necessary modules and components
-import React, { useState, useEffect } from 'react';
-import { Users, Building, Star } from "lucide-react";  // Icons for the stats
-import { Card, CardHeader, CardDescription, CardTitle } from "@/components/ui/card";  // Card components
+import { useState, useEffect } from "react"
 
 interface CounterProps {
-  end: number;
-  duration: number;
+  end: number
+  duration?: number
+  decimals?: number
 }
 
-export const Counter: React.FC<CounterProps> = ({ end, duration }) => {
-  const [count, setCount] = useState(0);
+export function Counter({ end, duration = 2, decimals = 0 }: CounterProps) {
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-    let start = 0;
-    const increment = end / (duration * 360); // 60 fps
-    const timer = setInterval(() => {
-      start += increment;
-      setCount(Math.floor(start));
-      if (start >= end) {
-        clearInterval(timer);
-        setCount(end);
+    let startTime: number
+    let animationFrame: number
+
+    const countUp = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
+      const currentCount = progress * end
+
+      setCount(currentCount)
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(countUp)
       }
-    }, 1000 / 60);
+    }
 
-    return () => clearInterval(timer);
-  }, [end, duration]);
+    animationFrame = requestAnimationFrame(countUp)
 
-  return <>{count.toLocaleString()}+</>;
-};
+    return () => {
+      cancelAnimationFrame(animationFrame)
+    }
+  }, [end, duration])
 
-// Use counters with faster durations in your main component
-const Statistics = () => {
-  return (
-    <div>
-      {/* Patients Treated */}
-      <Card>
-        <CardHeader>
-          <Users className="w-8 h-8 mr-2 bg-pink-800" />
-          <CardTitle className="flex items-baseline">
-            <Counter end={50000} duration={4} /> {/* Slower */}
-          </CardTitle>
-          <CardDescription>Patients Treated Annually</CardDescription>
-        </CardHeader>
-      </Card>
+  return <span>{count.toFixed(decimals)}</span>
+}
 
-      {/* Years Serving the Community */}
-      <Card>
-        <CardHeader>
-          <Building className="w-8 h-8 mr-2" />
-          <CardTitle className="flex items-baseline">
-            <Counter end={20} duration={3} />+ {/* Slow */}
-          </CardTitle>
-          <CardDescription>Years Serving the Community</CardDescription>
-        </CardHeader>
-      </Card>
-
-      {/* Patient Satisfaction Rating */}
-      <Card>
-        <CardHeader>
-          <Star className="w-8 h-8 mr-2" />
-          <CardTitle className="flex items-baseline">
-            <Counter end={4.9} duration={2} /> {/* Faster */}
-          </CardTitle>
-          <CardDescription>Patient Satisfaction Rating</CardDescription>
-        </CardHeader>
-      </Card>
-    </div>
-  );
-};
-
-export default Statistics;
