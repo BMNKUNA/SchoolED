@@ -81,13 +81,13 @@ export function HamburgerMenu() {
               <div className="flex justify-between items-center mb-8">
                 <Link href="/" className="flex items-center space-x-2">
                   <Image 
-                    src="/images/logo.png"
+                    src="/images/schoolED.png"
                     alt="SchoolED Logo"
                     width={80}
                     height={44}
                     className="rounded-full"
                   />
-                  <span className="text-xl font-bold">School<span className="text-green-600">ED</span></span>
+                  <span className="text-xl font-bold">School<span className="text-blue-600">ED</span></span>
                 </Link>
                 <Button variant="ghost" className="p-2 text-blue-800" onClick={toggleMenu}>
                   <svg
