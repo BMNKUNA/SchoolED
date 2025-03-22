@@ -1,71 +1,98 @@
-'use client'
+"use client";
 
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from "@/components/ui/button"
-import { HamburgerMenu } from "@/components/HamburgerMenu"
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-export function Navigation() {
-  const pathname = usePathname()
+function Navigation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Image 
-                src="/images/schoolED.png"
-                alt="SchoolED Logo" 
-                width={110}
-                height={60}
-                className="rounded-full"
-                priority
-              />
-              <span className="text-xl font-bold">School<span className="text-blue-600">ED</span></span>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <span className="text-2xl font-bold text-blue-800">
+                School<span className="text-blue-900">ED</span>
+              </span>
             </Link>
           </div>
-          <div className="hidden md:flex items-center space-x-8">
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/" className="text-gray-700 hover:text-blue-800 font-medium">
+              Home
+            </Link>
+            <Link href="/services" className="text-gray-700 hover:text-blue-800 font-medium">
+              Services
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-blue-800 font-medium">
+              About
+            </Link>
+            <Link href="/contact" className="text-gray-700 hover:text-blue-800 font-medium">
+              Contact
+            </Link>
+          </nav>
+
+          <div className="hidden md:flex">
+            <Button className="bg-blue-800 hover:bg-blue-700">Get Started</Button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <button
+              type="button"
+              className="text-gray-700 hover:text-blue-800"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white shadow-lg">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link
               href="/"
-              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
+              onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/services"
-              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/services' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
+              onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               href="/about"
-              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/about' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
+              onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/contact' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
+              onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
+            <div className="pt-2">
+              <Button className="w-full bg-blue-800 hover:bg-blue-700">Get Started</Button>
+            </div>
           </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <Link
-              href="/login"
-              className={`text-gray-600 hover:text-blue-800 transition-colors ${pathname === '/login' ? 'bg-blue-800 text-white' : ''} px-3 py-2 rounded-md`}
-            >
-              Login
-            </Link>
-            <Link href="/contact">
-              <Button className="bg-blue-800 hover:bg-blue-700">Get a Quote</Button>
-            </Link>
-          </div>
-          <HamburgerMenu />
         </div>
-      </div>
-    </nav>
-  )
+      )}
+    </header>
+  );
 }
+
+export { Navigation };

@@ -1,31 +1,38 @@
-'use client'
+"use client"
 
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Facebook, X, Instagram, Linkedin } from "lucide-react"
 
-export function Footer() {
-  const educationalPartners = [
-    { name: "Department of Education", icon: "/images/doe.png" },
-    { name: "National School Board", icon: "/images/nsb.png" },
-    { name: "Educational Trust", icon: "/images/edutrust.png" },
-    { name: "School Sports Association", icon: "/images/sports.png" },
-    { name: "Academic Excellence Foundation", icon: "/images/academic.png" },
-  ];
-
+export default function Footer() {
   const affiliatesSponsors = [
-    { name: "University of Pretoria", logo: "/images/up.png" },
-    { name: "Wits University", logo: "/images/wits.png" },
-    { name: "Educational Publishers", logo: "/images/publishers.png" },
-    { name: "Youth Development Fund", logo: "/images/youth.png" },
-    { name: "Future Leaders Foundation", logo: "/images/leaders.png" },
-  ];
+    {
+      name: "University of Pretoria",
+      logo: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    },
+    {
+      name: "Wits University",
+      logo: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80",
+    },
+    {
+      name: "Educational Publishers",
+      logo: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80",
+    },
+    {
+      name: "Youth Development Fund",
+      logo: "https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    },
+    {
+      name: "Future Leaders Foundation",
+      logo: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    },
+  ]
 
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Our Affiliates & Sponsors Section */}
-        <div className="mb-8 text-center">
+        <div className="mb-12 text-center">
           <div className="flex justify-center items-center space-x-2 mb-4">
             <span className="text-xl font-bold">Our Affiliates & Sponsors</span>
           </div>
@@ -38,7 +45,7 @@ export function Footer() {
                     alt={sponsor.name}
                     width={30}
                     height={30}
-                    className="object-contain"
+                    className="object-contain rounded-full"
                   />
                   <span className="text-gray-400 hover:text-white">{sponsor.name}</span>
                 </div>
@@ -51,7 +58,7 @@ export function Footer() {
                     alt={sponsor.name}
                     width={30}
                     height={30}
-                    className="object-contain"
+                    className="object-contain rounded-full"
                   />
                   <span className="text-gray-400 hover:text-white">{sponsor.name}</span>
                 </div>
@@ -60,53 +67,33 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8">
-          {/* Educational Partners Section */}
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <span className="text-xl font-bold">Educational Partners</span>
-            </div>
-            <ul className="space-y-2">
-              {educationalPartners.map((partner) => (
-                <li key={partner.name} className="flex items-center space-x-2">
-                  <img
-                    src={partner.icon || "/placeholder.svg"}
-                    alt={partner.name}
-                    width={30}
-                    height={30}
-                    className="object-contain"
-                  />
-                  <span className="text-gray-400 hover:text-white">{partner.name}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Follow Us Section with Social Media Icons */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <ul className="space-y-2">
               <li className="flex items-center space-x-2">
-                <Link href="https://www.facebook.com" passHref>
-                  <FaFacebook size={24} className="text-gray-400 hover:text-white" />
+                <Link href="https://www.facebook.com" className="text-gray-400 hover:text-white">
+                  <Facebook size={24} />
                 </Link>
                 <span className="text-gray-400 hover:text-white">Facebook</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Link href="https://www.twitter.com" passHref>
-                  <FaTwitter size={24} className="text-gray-400 hover:text-white" />
+                <Link href="https://www.x.com" className="text-gray-400 hover:text-white">
+                  <X size={24} />
                 </Link>
-                <span className="text-gray-400 hover:text-white">Twitter</span>
+                <span className="text-gray-400 hover:text-white">X</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Link href="https://www.instagram.com" passHref>
-                  <FaInstagram size={24} className="text-gray-400 hover:text-white" />
+                <Link href="https://www.instagram.com" className="text-gray-400 hover:text-white">
+                  <Instagram size={24} />
                 </Link>
                 <span className="text-gray-400 hover:text-white">Instagram</span>
               </li>
               <li className="flex items-center space-x-2">
-                <Link href="https://www.linkedin.com" passHref>
-                  <FaLinkedin size={24} className="text-gray-400 hover:text-white" />
+                <Link href="https://www.linkedin.com" className="text-gray-400 hover:text-white">
+                  <Linkedin size={24} />
                 </Link>
                 <span className="text-gray-400 hover:text-white">LinkedIn</span>
               </li>
@@ -117,11 +104,31 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-gray-400 hover:text-white">Home</Link></li>
-              <li><Link href="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-white">Services</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-white">Contact</Link></li>
-              <li><Link href="/sponsor" className="text-gray-400 hover:text-white">Sponsor a Child</Link></li>
+              <li>
+                <Link href="/" className="text-gray-400 hover:text-white">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="text-gray-400 hover:text-white">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 hover:text-white">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-white">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/sponsor" className="text-gray-400 hover:text-white">
+                  Sponsor a Child
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -145,5 +152,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

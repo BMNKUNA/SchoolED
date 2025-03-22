@@ -7,7 +7,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {Navigation} from "@/components/navigation"
-import {Footer} from "@/components/footer"
+import Footer from "@/components/footer"
 import { Modal } from "@/components/ui/modal"
 
 // Define service details with extended information and Unsplash images

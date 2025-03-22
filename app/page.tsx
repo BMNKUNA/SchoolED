@@ -1,14 +1,14 @@
 "use client"
 
 import { useState } from "react"
-import { ArrowRight, GraduationCap, Users, School, Award, ExternalLink } from "lucide-react"
+import { ArrowRight, GraduationCap, Users, School, Award, ExternalLink, Calendar, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Counter } from "@/components/ui/counter"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {Navigation} from "@/components/navigation"
-import {Footer} from "@/components/footer"
+import Footer from "@/components/footer"
 import { Modal } from "@/components/ui/modal"
 
 // Define service details with extended information and Unsplash images
@@ -163,34 +163,133 @@ const services = [
   },
 ]
 
-// Define news items
+// Define news items with extended content
 const newsItems = [
   {
     title: "Back to School Special",
     date: "Dec 15, 2024",
     excerpt: "Get ready for the new school year with our special discount on complete uniform packages.",
+    image:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80",
+    content: `
+      <h3>Back to School Special Offer</h3>
+      <p>As the new school year approaches, SchoolED is excited to announce our Back to School Special, offering significant discounts on complete uniform packages for schools and families.</p>
+      
+      <h4>Special Offer Details:</h4>
+      <ul>
+        <li>20% discount on complete uniform sets (shirt, pants/skirt, tie, and blazer)</li>
+        <li>Free name embroidery on all uniform items</li>
+        <li>Buy 5 or more sets and receive an additional 5% discount</li>
+        <li>Special bulk pricing for schools placing orders for 50+ students</li>
+      </ul>
+      
+      <h4>Promotion Period:</h4>
+      <p>This special offer is valid from December 15, 2024, to January 31, 2025. Orders can be placed online, by phone, or in person at our showroom.</p>
+      
+      <h4>Why Choose SchoolED Uniforms:</h4>
+      <ul>
+        <li>Durable, high-quality fabrics that withstand daily wear and frequent washing</li>
+        <li>Comfortable fit for all-day wear</li>
+        <li>Custom designs based on your school's colors and logo</li>
+        <li>Full range of sizes from pre-primary to matric</li>
+      </ul>
+      
+      <p>Don't miss this opportunity to prepare for the new school year with quality uniforms at special prices. Contact us today to place your order or request a custom quote for your school.</p>
+    `,
+    eventDate: "Dec 15, 2024 - Jan 31, 2025",
+    location: "Online and in-store",
   },
   {
     title: "Matric Jacket Design Competition",
     date: "Sept 19, 2024",
     excerpt:
       "Calling all creative students! Submit your designs for next year's matric jackets and win amazing prizes.",
+    image:
+      "https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+    content: `
+      <h3>Matric Jacket Design Competition</h3>
+      <p>SchoolED is thrilled to announce our annual Matric Jacket Design Competition! We're inviting creative students from across South Africa to submit their designs for next year's matric jackets.</p>
+      
+      <h4>Competition Details:</h4>
+      <ul>
+        <li>Open to all high school students in grades 10-12</li>
+        <li>Designs should be original and reflect school spirit and identity</li>
+        <li>Submissions can be digital or hand-drawn</li>
+        <li>Include front and back views of your jacket design</li>
+        <li>Submission deadline: October 31, 2024</li>
+      </ul>
+      
+      <h4>Prizes:</h4>
+      <ul>
+        <li>1st Place: R5,000 cash prize + your design produced for your school + free jacket</li>
+        <li>2nd Place: R2,500 cash prize + free jacket</li>
+        <li>3rd Place: R1,000 cash prize + free jacket</li>
+        <li>Top 10 Finalists: Recognition certificate and SchoolED merchandise pack</li>
+      </ul>
+      
+      <h4>How to Enter:</h4>
+      <p>Submit your designs via email to design@schooled.co.za or upload them through our website. Include your name, grade, school, and contact information.</p>
+      
+      <p>This is your chance to leave a lasting legacy at your school and showcase your creativity. We can't wait to see your amazing designs!</p>
+    `,
+    eventDate: "Submissions due by Oct 31, 2024",
+    location: "Online submission",
   },
   {
     title: "Education Technology Workshop",
     date: "Aug 26, 2024",
     excerpt:
       "Join us for a free workshop on integrating technology into the classroom for enhanced learning experiences.",
+    image:
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    content: `
+      <h3>Education Technology Workshop</h3>
+      <p>SchoolED invites educators, administrators, and IT staff to join our free workshop on integrating technology into the classroom for enhanced learning experiences.</p>
+      
+      <h4>Workshop Topics:</h4>
+      <ul>
+        <li>Digital tools for interactive learning</li>
+        <li>Managing online classrooms effectively</li>
+        <li>Using technology to personalize education</li>
+        <li>Cybersecurity best practices for schools</li>
+        <li>Affordable technology solutions for schools with limited budgets</li>
+        <li>Hands-on demonstrations of popular educational software</li>
+      </ul>
+      
+      <h4>Workshop Details:</h4>
+      <ul>
+        <li>Date: August 26, 2024</li>
+        <li>Time: 9:00 AM - 3:00 PM</li>
+        <li>Location: SchoolED Conference Center, Johannesburg</li>
+        <li>Cost: Free (registration required)</li>
+        <li>Lunch and refreshments will be provided</li>
+      </ul>
+      
+      <h4>Speakers:</h4>
+      <p>The workshop will feature presentations from leading education technology experts, including representatives from major educational software companies and experienced educators who have successfully implemented technology in their classrooms.</p>
+      
+      <p>Space is limited, so register today to secure your spot. This workshop is a valuable opportunity to enhance your teaching skills and learn how technology can transform the educational experience for your students.</p>
+    `,
+    eventDate: "August 26, 2024, 9:00 AM - 3:00 PM",
+    location: "SchoolED Conference Center, Johannesburg",
   },
 ]
 
 export default function HomePage() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isServiceModalOpen, setIsServiceModalOpen] = useState(false)
   const [selectedService, setSelectedService] = useState<(typeof services)[0] | null>(null)
+
+  const [isNewsModalOpen, setIsNewsModalOpen] = useState(false)
+  const [selectedNews, setSelectedNews] = useState<(typeof newsItems)[0] | null>(null)
 
   const openServiceModal = (service: (typeof services)[0]) => {
     setSelectedService(service)
-    setIsModalOpen(true)
+    setIsServiceModalOpen(true)
+  }
+
+  const openNewsModal = (news: (typeof newsItems)[0]) => {
+    setSelectedNews(news)
+    setIsNewsModalOpen(true)
   }
 
   return (
@@ -327,6 +426,14 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-8">
             {newsItems.map((news, index) => (
               <Card key={index} className="flex flex-col">
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={news.image || "/placeholder.svg"}
+                    alt={news.title}
+                    fill
+                    className="object-cover rounded-t-lg"
+                  />
+                </div>
                 <CardHeader>
                   <CardTitle>{news.title}</CardTitle>
                   <CardDescription>{news.date}</CardDescription>
@@ -335,7 +442,11 @@ export default function HomePage() {
                   <p>{news.excerpt}</p>
                 </CardContent>
                 <CardContent>
-                  <Button variant="ghost" className="mt-2 text-blue-800 hover:text-blue-700">
+                  <Button
+                    variant="ghost"
+                    className="mt-2 text-blue-800 hover:text-blue-700"
+                    onClick={() => openNewsModal(news)}
+                  >
                     Read More <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </CardContent>
@@ -350,7 +461,7 @@ export default function HomePage() {
 
       {/* Service Modal */}
       {selectedService && (
-        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={selectedService.title}>
+        <Modal isOpen={isServiceModalOpen} onClose={() => setIsServiceModalOpen(false)} title={selectedService.title}>
           <div className="space-y-6">
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
               <Image
@@ -378,12 +489,52 @@ export default function HomePage() {
             </div>
 
             <div className="flex justify-between pt-4 border-t">
-              <Button variant="outline" onClick={() => setIsModalOpen(false)}>
+              <Button variant="outline" onClick={() => setIsServiceModalOpen(false)}>
                 Close
               </Button>
               <Link href="/contact">
                 <Button className="bg-blue-800 hover:bg-blue-700">
                   Request a Quote <ExternalLink className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      {/* News Modal */}
+      {selectedNews && (
+        <Modal isOpen={isNewsModalOpen} onClose={() => setIsNewsModalOpen(false)} title={selectedNews.title}>
+          <div className="space-y-6">
+            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+              <Image
+                src={selectedNews.image || "/placeholder.svg"}
+                alt={selectedNews.title}
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            <div className="flex items-center space-x-4 text-sm text-gray-500">
+              <div className="flex items-center">
+                <Calendar className="h-4 w-4 mr-1" />
+                <span>{selectedNews.eventDate}</span>
+              </div>
+              <div className="flex items-center">
+                <MapPin className="h-4 w-4 mr-1" />
+                <span>{selectedNews.location}</span>
+              </div>
+            </div>
+
+            <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: selectedNews.content }} />
+
+            <div className="flex justify-between pt-4 border-t">
+              <Button variant="outline" onClick={() => setIsNewsModalOpen(false)}>
+                Close
+              </Button>
+              <Link href="/contact">
+                <Button className="bg-blue-800 hover:bg-blue-700">
+                  Contact Us <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
