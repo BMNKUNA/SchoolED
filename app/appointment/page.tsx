@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
+import Footer from "@/components/footer"
 
 export default function LoginPage() {
   return (
