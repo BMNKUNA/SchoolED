@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image"; // Import Image component
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -10,15 +10,15 @@ function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/30 backdrop-blur-lg shadow-md">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
           <Link href="/" className="flex items-center space-x-2">
-            <Image 
+            <Image
               src="/images/schoolED.png"
-              alt="SchoolED Logo" 
-              width={110}
+              alt="SchoolED Logo"
+              width={120}
               height={60}
               className="rounded-full"
               priority
@@ -26,24 +26,28 @@ function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-blue-800 font-medium">
-              Home
-            </Link>
-            <Link href="/services" className="text-gray-700 hover:text-blue-800 font-medium">
-              Services
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-blue-800 font-medium">
-              About
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-800 font-medium">
-              Contact
-            </Link>
+          <nav className="hidden md:flex space-x-12 lg:space-x-16">
+            {[
+              { name: "Home", href: "/" },
+              { name: "Services", href: "/services" },
+              { name: "About", href: "/about" },
+              { name: "Contact", href: "/contact" },
+            ].map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-gray-700 hover:text-blue-800 font-medium text-lg"
+              >
+                {item.name}
+              </Link>
+            ))}
           </nav>
 
           {/* Get Started Button (Desktop) */}
           <div className="hidden md:flex">
-            <Button className="bg-blue-800 hover:bg-blue-700">Get Started</Button>
+            <Button className="bg-blue-800 hover:bg-blue-700 px-6 py-2 rounded-lg text-white animate-pulse-flash">
+              Get Started
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -53,7 +57,7 @@ function Navigation() {
               className="text-gray-700 hover:text-blue-800"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
             </button>
           </div>
         </div>
@@ -61,21 +65,26 @@ function Navigation() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {["Home", "Services", "About", "Contact"].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase()}`}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </Link>
-            ))}
-            <div className="pt-2">
-              <Button className="w-full bg-blue-800 hover:bg-blue-700">Get Started</Button>
-            </div>
+        <div className="fixed top-0 left-0 right-0 z-50 bg-white/40 backdrop-blur-md shadow-md">
+          {[
+            { name: "Home", href: "/" },
+            { name: "Services", href: "/services" },
+            { name: "About", href: "/about" },
+            { name: "Contact", href: "/contact" },
+          ].map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="block px-4 py-2 rounded-md text-lg font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {item.name}
+            </Link>
+          ))}
+          <div className="pt-2">
+            <Button className="w-full bg-blue-800 hover:bg-blue-700 px-6 py-2 rounded-lg text-white animate-pulse-flash">
+              Get Started
+            </Button>
           </div>
         </div>
       )}
@@ -83,4 +92,4 @@ function Navigation() {
   );
 }
 
-export { Navigation };
+export default Navigation;

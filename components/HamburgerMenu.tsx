@@ -75,7 +75,7 @@ export function HamburgerMenu() {
             animate="open"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 z-50 bg-white dark:bg-gray-900"
+            className="fixed top-0 left-0 right-0 z-50 backdrop-blur-strong shadow-md"
           >
             <div className="flex flex-col h-full p-4">
               <div className="flex justify-between items-center mb-8">

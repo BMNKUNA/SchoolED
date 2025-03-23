@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from "@/components/ui/button"
-import { Navigation } from "@/components/navigation"
+import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 
 export default function LoginPage() {

@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from "@/components/ui/button"
-import { Navigation } from "@/components/navigation"
+import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 
 // Updated staff members for SchoolED

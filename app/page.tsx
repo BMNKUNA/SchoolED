@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import {
   ArrowRight,
   GraduationCap,
@@ -18,7 +18,7 @@ import Link from "next/link"
 import { Counter } from "@/components/ui/counter"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import {Navigation} from "@/components/navigation"
+import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { Modal } from "@/components/ui/modal"
 
@@ -174,7 +174,7 @@ const services = [
         "Bulk ordering for schools and classes",
       ],
       image:
-        "https://images.unsplash.com/photo-1586282391129-76a6df230234?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "https://images.unsplash.com/photo-1586282391129-76a6df230234?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     },
   },
   {
@@ -321,27 +321,82 @@ export default function HomePage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isTransitioning, setIsTransitioning] = useState(false)
 
-  // Auto-rotate images
+  // Create a continuous effect by duplicating the first image at the end
+  const displayImages = [...heroImages, heroImages[0]]
+
+  // Auto-rotate images continuously and faster (3000ms instead of 5000ms)
   useEffect(() => {
     const interval = setInterval(() => {
-      nextSlide()
-    }, 5000)
+      if (currentImageIndex === heroImages.length - 1) {
+        // When we're at the last original image, move to the duplicate first image
+        setCurrentImageIndex(currentImageIndex + 1)
+
+        // After the transition completes, instantly jump back to the first image without animation
+        setTimeout(() => {
+          setIsTransitioning(true)
+          setCurrentImageIndex(0)
+
+          // After DOM update, remove the transition to avoid visible jump
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              setIsTransitioning(false)
+            }, 50)
+          })
+        }, 500)
+      } else {
+        // Normal slide transition
+        setCurrentImageIndex((prevIndex) => prevIndex + 1)
+      }
+    }, 3000) // Faster rotation (3 seconds)
+
     return () => clearInterval(interval)
   }, [currentImageIndex])
 
   const nextSlide = () => {
-    if (!isTransitioning) {
-      setIsTransitioning(true)
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
-      setTimeout(() => setIsTransitioning(false), 700)
+    if (isTransitioning) return
+
+    if (currentImageIndex === heroImages.length - 1) {
+      // When at the last original image, move to the duplicate first image
+      setCurrentImageIndex(currentImageIndex + 1)
+
+      // After transition completes, instantly jump back to first image
+      setTimeout(() => {
+        setIsTransitioning(true)
+        setCurrentImageIndex(0)
+
+        // After DOM update, remove the transition
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            setIsTransitioning(false)
+          }, 50)
+        })
+      }, 500)
+    } else {
+      // Normal slide transition
+      setCurrentImageIndex(currentImageIndex + 1)
     }
   }
 
   const prevSlide = () => {
-    if (!isTransitioning) {
+    if (isTransitioning) return
+
+    if (currentImageIndex === 0) {
+      // When at first image, first set transitioning to true
       setIsTransitioning(true)
-      setCurrentImageIndex((prevIndex) => (prevIndex - 1 + heroImages.length) % heroImages.length)
-      setTimeout(() => setIsTransitioning(false), 700)
+
+      // Instantly jump to the duplicate image at the end without animation
+      setCurrentImageIndex(heroImages.length)
+
+      // After DOM update, remove the transition and slide to the last original image
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          setIsTransitioning(false)
+          setCurrentImageIndex(heroImages.length - 1)
+        }, 50)
+      })
+    } else {
+      // Normal slide transition
+      setCurrentImageIndex(currentImageIndex - 1)
     }
   }
 
@@ -355,19 +410,23 @@ export default function HomePage() {
     setIsNewsModalOpen(true)
   }
 
+  const sliderRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
+
   return (
     <div className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section with Slideshow */}
+      {/* Hero Section with Continuous Slideshow */}
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
         {/* Slideshow Container */}
         <div className="absolute inset-0 z-0">
           <div
-            className="flex transition-transform duration-700 ease-in-out h-full"
+            ref={sliderRef}
+            className={`flex h-full ${isTransitioning ? "" : "transition-transform duration-500 ease-in-out"}`}
             style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
           >
-            {heroImages.map((image, index) => (
+            {displayImages.map((image, index) => (
               <div key={index} className="flex-shrink-0 w-full h-full relative">
                 <Image
                   src={image.src || "/placeholder.svg"}
@@ -404,12 +463,14 @@ export default function HomePage() {
                 key={index}
                 onClick={() => {
                   if (!isTransitioning) {
-                    setIsTransitioning(true)
                     setCurrentImageIndex(index)
-                    setTimeout(() => setIsTransitioning(false), 700)
                   }
                 }}
-                className={`w-3 h-3 rounded-full ${index === currentImageIndex ? "bg-white" : "bg-white/50"}`}
+                className={`w-3 h-3 rounded-full ${
+                  index === (currentImageIndex >= heroImages.length ? 0 : currentImageIndex)
+                    ? "bg-white"
+                    : "bg-white/50"
+                }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
