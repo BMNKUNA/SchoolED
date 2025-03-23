@@ -1,7 +1,18 @@
 "use client"
 
-import { useState } from "react"
-import { ArrowRight, GraduationCap, Users, School, Award, ExternalLink, Calendar, MapPin } from "lucide-react"
+import { useState, useEffect } from "react"
+import {
+  ArrowRight,
+  GraduationCap,
+  Users,
+  School,
+  Award,
+  ExternalLink,
+  Calendar,
+  MapPin,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Counter } from "@/components/ui/counter"
@@ -10,6 +21,30 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import {Navigation} from "@/components/navigation"
 import Footer from "@/components/footer"
 import { Modal } from "@/components/ui/modal"
+
+// Hero slider images
+const heroImages = [
+  {
+    src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    alt: "School Education",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    alt: "Students in Classroom",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80",
+    alt: "School Campus",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2132&q=80",
+    alt: "Graduation Ceremony",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    alt: "School Library",
+  },
+]
 
 // Define service details with extended information and Unsplash images
 const services = [
@@ -158,7 +193,7 @@ const services = [
         "100% of donations go directly to supporting students",
       ],
       image:
-        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     },
   },
 ]
@@ -205,7 +240,7 @@ const newsItems = [
     excerpt:
       "Calling all creative students! Submit your designs for next year's matric jackets and win amazing prizes.",
     image:
-      "https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      "https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
     content: `
       <h3>Matric Jacket Design Competition</h3>
       <p>SchoolED is thrilled to announce our annual Matric Jacket Design Competition! We're inviting creative students from across South Africa to submit their designs for next year's matric jackets.</p>
@@ -241,7 +276,7 @@ const newsItems = [
     excerpt:
       "Join us for a free workshop on integrating technology into the classroom for enhanced learning experiences.",
     image:
-      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     content: `
       <h3>Education Technology Workshop</h3>
       <p>SchoolED invites educators, administrators, and IT staff to join our free workshop on integrating technology into the classroom for enhanced learning experiences.</p>
@@ -282,6 +317,34 @@ export default function HomePage() {
   const [isNewsModalOpen, setIsNewsModalOpen] = useState(false)
   const [selectedNews, setSelectedNews] = useState<(typeof newsItems)[0] | null>(null)
 
+  // Hero slider state
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+
+  // Auto-rotate images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide()
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [currentImageIndex])
+
+  const nextSlide = () => {
+    if (!isTransitioning) {
+      setIsTransitioning(true)
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
+      setTimeout(() => setIsTransitioning(false), 700)
+    }
+  }
+
+  const prevSlide = () => {
+    if (!isTransitioning) {
+      setIsTransitioning(true)
+      setCurrentImageIndex((prevIndex) => (prevIndex - 1 + heroImages.length) % heroImages.length)
+      setTimeout(() => setIsTransitioning(false), 700)
+    }
+  }
+
   const openServiceModal = (service: (typeof services)[0]) => {
     setSelectedService(service)
     setIsServiceModalOpen(true)
@@ -296,18 +359,63 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-16">
+      {/* Hero Section with Slideshow */}
+      <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+        {/* Slideshow Container */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            alt="School Education"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-blue-600/40" />
+          <div
+            className="flex transition-transform duration-700 ease-in-out h-full"
+            style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
+          >
+            {heroImages.map((image, index) => (
+              <div key={index} className="flex-shrink-0 w-full h-full relative">
+                <Image
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  priority={index === 0}
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-blue-600/40" />
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 rounded-full p-2 text-white"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 rounded-full p-2 text-white"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex space-x-2">
+            {heroImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  if (!isTransitioning) {
+                    setIsTransitioning(true)
+                    setCurrentImageIndex(index)
+                    setTimeout(() => setIsTransitioning(false), 700)
+                  }
+                }}
+                className={`w-3 h-3 rounded-full ${index === currentImageIndex ? "bg-white" : "bg-white/50"}`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">

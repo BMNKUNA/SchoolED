@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image"; // Import Image component
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -12,13 +13,18 @@ function Navigation() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-blue-800">
-                School<span className="text-blue-900">ED</span>
-              </span>
-            </Link>
-          </div>
+          {/* Logo Section */}
+          <Link href="/" className="flex items-center space-x-2">
+            <Image 
+              src="/images/schoolED.png"
+              alt="SchoolED Logo" 
+              width={110}
+              height={60}
+              className="rounded-full"
+              priority
+            />
+            <span className="text-xl font-bold">School<span className="text-blue-600">ED</span></span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
@@ -36,11 +42,12 @@ function Navigation() {
             </Link>
           </nav>
 
+          {/* Get Started Button (Desktop) */}
           <div className="hidden md:flex">
             <Button className="bg-blue-800 hover:bg-blue-700">Get Started</Button>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               type="button"
@@ -57,34 +64,16 @@ function Navigation() {
       {isMenuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link
-              href="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/services"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link
-              href="/about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
+            {["Home", "Services", "About", "Contact"].map((item) => (
+              <Link
+                key={item}
+                href={`/${item.toLowerCase()}`}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-800 hover:bg-gray-50"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item}
+              </Link>
+            ))}
             <div className="pt-2">
               <Button className="w-full bg-blue-800 hover:bg-blue-700">Get Started</Button>
             </div>
