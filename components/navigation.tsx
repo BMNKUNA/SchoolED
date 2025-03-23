@@ -23,7 +23,6 @@ function Navigation() {
               className="rounded-full"
               priority
             />
-            <span className="text-xl font-bold">School<span className="text-blue-600">ED</span></span>
           </Link>
 
           {/* Desktop Navigation */}
