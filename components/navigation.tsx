@@ -45,9 +45,11 @@ function Navigation() {
 
           {/* Get Started Button (Desktop) */}
           <div className="hidden md:flex">
+          <Link href="/contact">
             <Button className="bg-blue-800 hover:bg-blue-700 px-6 py-2 rounded-lg text-white animate-pulse-flash">
               Get Started
             </Button>
+          </Link>
           </div>
 
           {/* Mobile Menu Button */}
