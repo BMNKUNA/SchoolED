@@ -411,7 +411,6 @@ export default function HomePage() {
   }
 
   const sliderRef = useRef<HTMLDivElement>(null)
-  const [isDragging, setIsDragging] = useState(false)
 
   return (
     <div className="min-h-screen">
