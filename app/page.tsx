@@ -219,7 +219,7 @@ const newsItems = [
       </ul>
       
       <h4>Promotion Period:</h4>
-      <p>This special offer is valid from December 15, 2024, to January 31, 2025. Orders can be placed online, by phone, or in person at our showroom.</p>
+      <p>This special offer is valid from December 15, 2024, to January 31, 2025. Orders can be placed online, by phone, or via WhatsApp.</p>
       
       <h4>Why Choose SchoolED Uniforms:</h4>
       <ul>

@@ -1,16 +1,14 @@
 "use client"
 
-import { useState } from "react"
-import { ArrowRight, Phone, MapPin, Clock, Calendar } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
+import ContactDetails from "@/components/contact-details"
 
 export default function ContactPage() {
-  const [mapLoaded, setMapLoaded] = useState(false)
-
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -34,54 +32,10 @@ export default function ContactPage() {
 
         <section id="contact" className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div className="grid items-start gap-10 md:grid-cols-2 md:gap-16">
               <div>
-                <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <Phone className="h-6 w-6 text-blue-600" />
-                    <span className="text-gray-700">+27 (0) 12 345 6789</span>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <MapPin className="h-6 w-6 text-blue-600" />
-                    <span className="text-gray-700">
-                      123 School Street, Education District, Johannesburg, South Africa
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <Clock className="h-6 w-6 text-blue-600" />
-                    <span className="text-gray-700">Mon-Fri: 8am-5pm, Sat: 9am-1pm</span>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <Calendar className="h-6 w-6 text-blue-600" />
-                    <span className="text-gray-700">Closed on public holidays</span>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <h3 className="text-xl font-bold mb-4">Our Location</h3>
-                  <div className="rounded-lg overflow-hidden shadow-lg h-[300px] relative">
-                    {/* Interactive Map */}
-                    <div className="absolute inset-0 bg-gray-100 flex items-center justify-center">
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.73428063209!2d27.942255777920966!3d-26.17012455404587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac9d9b1d34041!2sJohannesburg%2C%20South%20Africa!5e0!3m2!1sen!2sus!4v1690000000000!5m2!1sen!2sus"
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        onLoad={() => setMapLoaded(true)}
-                        className={`transition-opacity duration-500 ${mapLoaded ? "opacity-100" : "opacity-0"}`}
-                      ></iframe>
-                      {!mapLoaded && (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600"></div>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <h2 className="mb-8 text-3xl font-bold">Get in Touch</h2>
+                <ContactDetails />
               </div>
               <Card className="bg-white shadow-lg">
                 <CardHeader>
@@ -93,24 +47,24 @@ export default function ContactPage() {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label className="text-sm font-medium">First Name</label>
-                        <input type="text" className="w-full px-3 py-2 border rounded-md" />
+                        <input type="text" className="w-full rounded-md border px-3 py-2 text-base" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium">Last Name</label>
-                        <input type="text" className="w-full px-3 py-2 border rounded-md" />
+                        <input type="text" className="w-full rounded-md border px-3 py-2 text-base" />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Email</label>
-                      <input type="email" className="w-full px-3 py-2 border rounded-md" />
+                      <input type="email" className="w-full rounded-md border px-3 py-2 text-base" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">School/Organization</label>
-                      <input type="text" className="w-full px-3 py-2 border rounded-md" />
+                      <input type="text" className="w-full rounded-md border px-3 py-2 text-base" />
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Service Interested In</label>
-                      <select className="w-full px-3 py-2 border rounded-md">
+                      <select className="w-full rounded-md border px-3 py-2 text-base">
                         <option value="">Select a service</option>
                         <option value="uniforms">School Uniforms</option>
                         <option value="websites">School Websites</option>
@@ -125,7 +79,7 @@ export default function ContactPage() {
                     </div>
                     <div className="space-y-2">
                       <label className="text-sm font-medium">Message</label>
-                      <textarea className="w-full px-3 py-2 border rounded-md" rows={4}></textarea>
+                      <textarea className="w-full rounded-md border px-3 py-2 text-base" rows={4}></textarea>
                     </div>
                     <Button className="w-full bg-blue-800 hover:bg-blue-700">
                       Send Message
@@ -149,7 +103,7 @@ export default function ContactPage() {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-xl font-bold mb-3">How do I place an order for school uniforms?</h3>
                 <p className="text-gray-600">
-                  You can place an order by contacting us through this form, calling our office, or sending an email.
+                  You can place an order by contacting us through this form, calling our office, messaging us on WhatsApp, or sending an email.
                   For bulk school orders, we offer a consultation to discuss your specific requirements.
                 </p>
               </div>

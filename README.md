@@ -71,6 +71,8 @@ For more information or inquiries, please contact us at:
 
 Email: info@schoolED.com
 
-Phone: +27 11 123 4567
+Office: 011 771 2917
 
-Address: 123 SchoolED Street, Johannesburg, South Africa
+Cell / WhatsApp: 065 389 0723
+
+Remote

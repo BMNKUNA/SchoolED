@@ -130,11 +130,11 @@ export default function AboutPage() {
         </section>
 
         {/* Staff Section */}
-        <section className="relative h-screen bg-blue-800 overflow-hidden">
+        <section className="relative min-h-screen overflow-hidden bg-blue-800 py-24">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-blue-800 opacity-80"></div>
           </div>
-          <div className="relative z-10 h-full flex flex-col justify-center items-center text-white">
+          <div className="relative z-10 flex min-h-[70vh] flex-col items-center justify-center px-4 py-12 text-white">
             <h2 className="text-4xl md:text-5xl font-bold mb-8">Meet Our Dedicated Team</h2>
             <AnimatePresence mode="wait">
               <motion.div
