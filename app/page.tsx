@@ -67,8 +67,7 @@ const services = [
         "Full range of sizes from pre-primary to matric",
         "Bulk ordering options with special pricing for schools",
       ],
-      image:
-        "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      image: "/images/school-uniform.png",
     },
   },
   {
@@ -105,7 +104,7 @@ const services = [
         "Options for different sports and activities",
         "Comfortable fit for optimal performance",
       ],
-      image: "/images/school-sports-netball.png",
+      image: "/images/school-tracksuits.png",
     },
   },
   {
@@ -122,8 +121,7 @@ const services = [
         "Various styles and designs to choose from",
         "Group ordering discounts for schools",
       ],
-      image:
-        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80",
+      image: "/images/matric-jacket.png",
     },
   },
   {
@@ -183,18 +181,18 @@ const services = [
   },
   {
     title: "Sponsor a Child",
-    excerpt: "Support programs to provide educational resources for underprivileged students.",
+    excerpt: "Making real change for students in need — including our 2026 laptop giveaway for university.",
     icon: "❤️",
     details: {
       description:
-        "Our Sponsor a Child program connects donors with underprivileged students to provide essential educational resources. Your contribution can make a significant difference in a child's education and future.",
+        "Sponsor a Child is about practical help that changes lives. We support needy students who are working hard but lack the basics — from school essentials to tools for higher education. Our 2026 giveaway will award one laptop to a deserving student who needs it to start university.",
       features: [
-        "Direct support for students in need",
-        "Options to sponsor uniforms, books, or school fees",
-        "Regular updates on the student's progress",
-        "Tax-deductible donations",
-        "Corporate sponsorship programs available",
-        "100% of donations go directly to supporting students",
+        "2026 Laptop Giveaway — 1 laptop for a needy university-bound student",
+        "Support for uniforms, books, and school essentials",
+        "Focus on students with genuine financial need",
+        "Schools and communities help identify deserving recipients",
+        "Clear, fair selection process for giveaways and support",
+        "Corporate and community partners welcome",
       ],
       image:
         "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -204,6 +202,32 @@ const services = [
 
 // Define news items with extended content
 const newsItems = [
+  {
+    title: "2026 Laptop Giveaway",
+    date: "Jan 2026",
+    excerpt:
+      "Sponsor a Child is giving one laptop to a needy student who needs it for university — making real change where it matters.",
+    image:
+      "https://images.unsplash.com/photo-1496187832203-d11feb8d55ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+    content: `
+      <h3>2026 Laptop Giveaway — Sponsor a Child</h3>
+      <p>SchoolED believes support should change lives in a tangible way. Our 2026 Sponsor a Child competition will award <strong>one laptop</strong> to a deserving student who has been accepted to university but cannot afford the technology they need to study.</p>
+      
+      <h4>Who This Is For:</h4>
+      <ul>
+        <li>Needy students with a university acceptance</li>
+        <li>Students who lack access to a laptop for their studies</li>
+        <li>Young people who have shown commitment despite financial hardship</li>
+      </ul>
+      
+      <h4>How It Works:</h4>
+      <p>Nominations and applications will be reviewed with input from schools and communities. The goal is simple: remove a real barrier so one student can start university with the tools they need.</p>
+      
+      <p>Want to nominate a student, partner with us, or support the initiative? Contact SchoolED via WhatsApp or our contact form.</p>
+    `,
+    eventDate: "2026",
+    location: "South Africa (remote)",
+  },
   {
     title: "Back to School Special",
     date: "Dec 15, 2024",
@@ -243,8 +267,8 @@ const newsItems = [
     date: "Sept 19, 2024",
     excerpt:
       "Calling all creative students! Submit your designs for next year's matric jackets and win amazing prizes.",
-    image:
-      "https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+    image: "/images/matric-jacket.png",
+    imageClassName: "object-contain bg-gray-100",
     content: `
       <h3>Matric Jacket Design Competition</h3>
       <p>SchoolED is thrilled to announce our annual Matric Jacket Design Competition! We're inviting creative students from across South Africa to submit their designs for next year's matric jackets.</p>
@@ -603,7 +627,7 @@ export default function HomePage() {
                     src={news.image || "/placeholder.svg"}
                     alt={news.title}
                     fill
-                    className="object-cover rounded-t-lg"
+                    className={`rounded-t-lg ${news.imageClassName ?? "object-cover"}`}
                   />
                 </div>
                 <CardHeader>
@@ -680,12 +704,12 @@ export default function HomePage() {
       {selectedNews && (
         <Modal isOpen={isNewsModalOpen} onClose={() => setIsNewsModalOpen(false)} title={selectedNews.title}>
           <div className="space-y-6">
-            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden bg-gray-100">
               <Image
                 src={selectedNews.image || "/placeholder.svg"}
                 alt={selectedNews.title}
                 fill
-                className="object-cover"
+                className={selectedNews.imageClassName ?? "object-cover"}
               />
             </div>
 

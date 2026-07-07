@@ -238,8 +238,8 @@ export default function AboutPage() {
               <div className="rounded-lg bg-white p-8 text-center shadow-md">
                 <h3 className="mb-4 text-2xl font-bold">Community Impact</h3>
                 <p className="text-gray-600">
-                  Through our Sponsor a Child programme, we help learners access uniforms and essentials they might
-                  otherwise go without.
+                  Through Sponsor a Child, we run initiatives like our 2026 laptop giveaway — giving a needy
+                  university-bound student the tools they need to start the next chapter of their education.
                 </p>
               </div>
             </div>

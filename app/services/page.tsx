@@ -17,8 +17,7 @@ const services = [
     title: "School Uniforms",
     description: "Custom-designed, high-quality uniforms for all school levels",
     icon: <Shirt className="h-8 w-8 text-blue-600" />,
-    image:
-      "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    image: "/images/school-uniform.png",
     details: {
       description:
         "Our school uniforms are designed with durability and comfort in mind. We use high-quality fabrics that can withstand daily wear and frequent washing while maintaining their appearance.",
@@ -30,7 +29,7 @@ const services = [
         "Bulk ordering options with special pricing for schools",
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1604671801908-6f0c6a092c05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        "/images/school-uniform.png",
         "https://images.unsplash.com/photo-1580237072353-751a8a5b2561?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
         "https://images.unsplash.com/photo-1621570169694-4b0fd2aac699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
       ],
@@ -68,7 +67,7 @@ const services = [
     description: "Career-themed costumes to inspire children's future aspirations",
     icon: <GraduationCap className="h-8 w-8 text-purple-600" />,
     image:
-      "https://images.unsplash.com/photo-1617038220319-276d3cfab638?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+      "https://images.unsplash.com/photo-1566140967404-b8b3932483f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     details: {
       description:
         "Our CareerKids costumes help children explore different professions and dream about their future. Each costume is designed to be both educational and fun, allowing kids to role-play various careers.",
@@ -81,7 +80,6 @@ const services = [
         "Bulk orders available for schools and daycares",
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1617038220319-276d3cfab638?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
         "https://images.unsplash.com/photo-1566140967404-b8b3932483f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
         "https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       ],
@@ -92,7 +90,7 @@ const services = [
     title: "Tracksuits",
     description: "Comfortable and durable tracksuits for physical education and sports teams",
     icon: <Shirt className="h-8 w-8 text-red-600" />,
-    image: "/images/school-sports-netball.png",
+    image: "/images/school-tracksuits.png",
     details: {
       description:
         "Our tracksuits and sportswear are designed for comfort, durability, and performance. We offer customization options to incorporate your school's colors and logo.",
@@ -104,8 +102,7 @@ const services = [
         "Comfortable fit for optimal performance",
       ],
       gallery: [
-        "/images/school-sports-netball.png",
-        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80",
+        "/images/school-tracksuits.png",
         "https://images.unsplash.com/photo-1483721310020-03333e577078?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2028&q=80",
         "https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2033&q=80",
       ],
@@ -116,8 +113,7 @@ const services = [
     title: "Matric Jackets",
     description: "Commemorative jackets for matriculants to celebrate their achievement",
     icon: <Shirt className="h-8 w-8 text-amber-600" />,
-    image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80",
+    image: "/images/matric-jacket.png",
     details: {
       description:
         "Our matric jackets are a perfect way for students to commemorate their final year of school. Each jacket is customized with the school's colors and emblem, along with personalization options.",
@@ -128,11 +124,7 @@ const services = [
         "Various styles and designs to choose from",
         "Group ordering discounts for schools",
       ],
-      gallery: [
-        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1936&q=80",
-        "https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
-        "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80",
-      ],
+      gallery: ["/images/matric-jacket.png"],
     },
   },
   {
@@ -187,20 +179,20 @@ const services = [
   {
     id: "sponsor",
     title: "Sponsor a Child",
-    description: "Programs to support underprivileged students with educational resources",
+    description: "Making real change for needy students — giveaways and support that matter",
     icon: <Heart className="h-8 w-8 text-pink-600" />,
     image:
       "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     details: {
       description:
-        "Our Sponsor a Child program connects donors with underprivileged students to provide essential educational resources. Your contribution can make a significant difference in a child's education and future.",
+        "Sponsor a Child is about practical help that changes lives. We support students who are determined to succeed but cannot afford the basics. Our headline 2026 initiative is a giveaway competition: one laptop awarded to a needy student who needs it for university.",
       features: [
-        "Direct support for students in need",
-        "Options to sponsor uniforms, books, or school fees",
-        "Regular updates on the student's progress",
-        "Tax-deductible donations",
-        "Corporate sponsorship programs available",
-        "100% of donations go directly to supporting students",
+        "2026 Laptop Giveaway — 1 laptop for a needy university-bound student",
+        "Support for uniforms, books, and school essentials",
+        "Focus on students with genuine financial need",
+        "Schools and communities help identify deserving recipients",
+        "Clear, fair selection process for giveaways and support",
+        "Corporate and community partners welcome",
       ],
       gallery: [
         "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
