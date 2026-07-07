@@ -1,7 +1,7 @@
 Welcome to SchoolED! We are an innovative educational services platform dedicated to enhancing the educational experience through quality products and services.
 
 About Us
-Founded by Mr. BM Nkuna in 2010, SchoolED has grown from a small uniform supplier to a comprehensive educational service provider. We are committed to providing high-quality products and services to schools across South Africa.
+Founded by Monde Nkuna in 2015, SchoolED has grown from a focused uniform supplier into a trusted partner for schools across Gauteng and beyond.
 
 Our Mission
 At SchoolED, our mission is to enhance the educational experience through quality products and services that allow schools to focus on their core mission of teaching and learning.

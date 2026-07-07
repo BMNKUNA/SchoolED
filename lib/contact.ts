@@ -13,3 +13,19 @@ export const contact = {
 export const officeTelUrl = `tel:${contact.office.tel}`
 export const cellTelUrl = `tel:${contact.cell.tel}`
 export const whatsappUrl = `https://wa.me/${contact.cell.whatsapp}`
+
+export function buildWhatsAppMessageUrl(message: string) {
+  return `${whatsappUrl}?text=${encodeURIComponent(message)}`
+}
+
+export const company = {
+  foundedYear: 2015,
+  founder: {
+    name: "Monde Nkuna",
+    photo: "/images/monde-nkuna.png",
+  },
+} as const
+
+export function getYearsInBusiness(year = new Date().getFullYear()) {
+  return year - company.foundedYear
+}

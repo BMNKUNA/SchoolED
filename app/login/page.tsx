@@ -12,15 +12,13 @@ export default function LoginPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    
-    // Basic validation
+
     if (!email || !password) {
       setError('Please enter both email and password')
       return
     }
 
-    // Implement login functionality here (e.g., API call)
-    // For now, we'll just log the input values
+    setError('')
     console.log({ email, password })
   }
 
@@ -29,12 +27,12 @@ export default function LoginPage() {
       <Navigation />
 
       <main className="pt-16">
-        <section className="py-32 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
-              <h1 className="text-2xl font-bold text-center mb-6">Login to Your Account</h1>
+        <section className="bg-gray-50 py-16 md:py-32">
+          <div className="mx-auto max-w-md px-4 sm:px-6 lg:px-8">
+            <div className="rounded-lg bg-white p-6 shadow-lg sm:p-8">
+              <h1 className="mb-6 text-center text-2xl font-bold">Login to Your Account</h1>
 
-              {error && <div className="text-red-600 text-center mb-4">{error}</div>}
+              {error && <div className="mb-4 text-center text-red-600">{error}</div>}
 
               <form onSubmit={handleLogin} className="space-y-4">
                 <div className="space-y-2">
@@ -43,7 +41,7 @@ export default function LoginPage() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full px-3 py-2 border rounded-md"
+                    className="w-full rounded-md border px-3 py-2 text-base"
                     required
                   />
                 </div>
@@ -54,12 +52,14 @@ export default function LoginPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full px-3 py-2 border rounded-md"
+                    className="w-full rounded-md border px-3 py-2 text-base"
                     required
                   />
                 </div>
 
-                <Button className="w-full bg-pink-800 hover:bg-pink-700">Login</Button>
+                <Button type="submit" className="min-h-11 w-full bg-blue-800 hover:bg-blue-700">
+                  Login
+                </Button>
               </form>
             </div>
           </div>

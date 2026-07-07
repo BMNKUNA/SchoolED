@@ -21,9 +21,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { Modal } from "@/components/ui/modal"
+import { getYearsInBusiness } from "@/lib/contact"
 
 // Hero slider images
 const heroImages = [
+  {
+    src: "/images/school-sports-netball.png",
+    alt: "School students playing netball",
+  },
   {
     src: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     alt: "School Education",
@@ -100,8 +105,7 @@ const services = [
         "Options for different sports and activities",
         "Comfortable fit for optimal performance",
       ],
-      image:
-        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80",
+      image: "/images/school-sports-netball.png",
     },
   },
   {
@@ -232,7 +236,7 @@ const newsItems = [
       <p>Don't miss this opportunity to prepare for the new school year with quality uniforms at special prices. Contact us today to place your order or request a custom quote for your school.</p>
     `,
     eventDate: "Dec 15, 2024 - Jan 31, 2025",
-    location: "Online and in-store",
+    location: "Online and remote",
   },
   {
     title: "Matric Jacket Design Competition",
@@ -295,7 +299,7 @@ const newsItems = [
       <ul>
         <li>Date: August 26, 2024</li>
         <li>Time: 9:00 AM - 3:00 PM</li>
-        <li>Location: SchoolED Conference Center, Johannesburg</li>
+        <li>Location: Online (remote)</li>
         <li>Cost: Free (registration required)</li>
         <li>Lunch and refreshments will be provided</li>
       </ul>
@@ -306,7 +310,7 @@ const newsItems = [
       <p>Space is limited, so register today to secure your spot. This workshop is a valuable opportunity to enhance your teaching skills and learn how technology can transform the educational experience for your students.</p>
     `,
     eventDate: "August 26, 2024, 9:00 AM - 3:00 PM",
-    location: "SchoolED Conference Center, Johannesburg",
+    location: "Online (remote)",
   },
 ]
 
@@ -476,27 +480,27 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8 lg:py-32">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="mb-6 text-3xl font-bold text-white sm:text-4xl md:text-6xl">
               Empowering Education Through Quality Services
             </h1>
             <p className="text-xl text-white/90 mb-8">
               SchoolED is committed to providing high-quality school uniforms, websites, events, and more to enhance the
               educational experience across South Africa.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact">
-                <Button size="lg" className="text-lg bg-white bg-blue-800 hover:bg-blue-700 text-white">
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full bg-blue-800 text-lg text-white hover:bg-blue-700 sm:w-auto">
                   Get a Quote
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <Link href="/services">
+              <Link href="/services" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-lg bg-transparent text-white border-white hover:bg-white/20"
+                  className="w-full border-white bg-transparent text-lg text-white hover:bg-white/20 sm:w-auto"
                 >
                   Our Services
                 </Button>
@@ -507,14 +511,14 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative z-20 -mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+      <section className="relative z-20 -mt-10 md:-mt-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-4 md:gap-8">
             <Card className="bg-white/90 backdrop-blur-lg border-none shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-baseline">
                   <Users className="w-8 h-8 mr-2 text-blue-800" />
-                  <Counter end={5000} duration={2} />
+                  <Counter end={1200} duration={2} />+
                 </CardTitle>
                 <CardDescription className="text-lg">Students Served Annually</CardDescription>
               </CardHeader>
@@ -523,7 +527,7 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="flex items-baseline">
                   <School className="w-8 h-8 mr-2 text-blue-800" />
-                  <Counter end={150} duration={2} />
+                  <Counter end={45} duration={2} />+
                 </CardTitle>
                 <CardDescription className="text-lg">Partner Schools</CardDescription>
               </CardHeader>
@@ -532,7 +536,7 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="flex items-baseline">
                   <GraduationCap className="w-8 h-8 mr-2 text-blue-800" />
-                  <Counter end={15} duration={4} />
+                  <Counter end={getYearsInBusiness()} duration={4} />
                 </CardTitle>
                 <CardDescription className="text-lg">Years of Excellence</CardDescription>
               </CardHeader>
@@ -621,8 +625,10 @@ export default function HomePage() {
               </Card>
             ))}
           </div>
-          <div className="text-center mt-8">
-            <Button className="bg-blue-800 hover:bg-blue-700">View All News & Events</Button>
+          <div className="mt-8 text-center">
+            <Link href="#news">
+              <Button className="bg-blue-800 hover:bg-blue-700">View All News & Events</Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -656,7 +662,7 @@ export default function HomePage() {
               </ul>
             </div>
 
-            <div className="flex justify-between pt-4 border-t">
+            <div className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
               <Button variant="outline" onClick={() => setIsServiceModalOpen(false)}>
                 Close
               </Button>
@@ -683,7 +689,7 @@ export default function HomePage() {
               />
             </div>
 
-            <div className="flex items-center space-x-4 text-sm text-gray-500">
+            <div className="flex flex-col gap-2 text-sm text-gray-500 sm:flex-row sm:items-center sm:space-x-4">
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-1" />
                 <span>{selectedNews.eventDate}</span>
@@ -696,7 +702,7 @@ export default function HomePage() {
 
             <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: selectedNews.content }} />
 
-            <div className="flex justify-between pt-4 border-t">
+            <div className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
               <Button variant="outline" onClick={() => setIsNewsModalOpen(false)}>
                 Close
               </Button>

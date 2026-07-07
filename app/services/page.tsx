@@ -92,8 +92,7 @@ const services = [
     title: "Tracksuits",
     description: "Comfortable and durable tracksuits for physical education and sports teams",
     icon: <Shirt className="h-8 w-8 text-red-600" />,
-    image:
-      "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80",
+    image: "/images/school-sports-netball.png",
     details: {
       description:
         "Our tracksuits and sportswear are designed for comfort, durability, and performance. We offer customization options to incorporate your school's colors and logo.",
@@ -105,6 +104,7 @@ const services = [
         "Comfortable fit for optimal performance",
       ],
       gallery: [
+        "/images/school-sports-netball.png",
         "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2020&q=80",
         "https://images.unsplash.com/photo-1483721310020-03333e577078?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2028&q=80",
         "https://images.unsplash.com/photo-1517466787929-bc90951d0974?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2033&q=80",
@@ -252,7 +252,7 @@ export default function ServicesPage() {
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
               <p className="text-xl text-gray-600">Everything your school needs in one place</p>
             </div>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
               {services.map((service, index) => (
                 <Card key={index} className="group hover:shadow-lg transition-all duration-300">
                   <CardHeader>
@@ -339,7 +339,7 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-              <div className="flex justify-between pt-4 border-t">
+            <div className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <Button variant="outline" onClick={() => setIsModalOpen(false)}>
                   Close
                 </Button>
