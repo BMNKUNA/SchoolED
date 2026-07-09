@@ -2,7 +2,6 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Facebook, X, Instagram, Linkedin } from "lucide-react"
 
 export default function Footer() {
   const partners = [
@@ -36,26 +35,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Follow Us</h3>
-            <ul className="space-y-3">
-              {[
-                { href: "https://www.facebook.com", icon: Facebook, label: "Facebook" },
-                { href: "https://www.x.com", icon: X, label: "X" },
-                { href: "https://www.instagram.com", icon: Instagram, label: "Instagram" },
-                { href: "https://www.linkedin.com", icon: Linkedin, label: "LinkedIn" },
-              ].map(({ href, icon: Icon, label }) => (
-                <li key={label}>
-                  <Link href={href} className="flex min-h-11 items-center space-x-2 text-gray-400 hover:text-white">
-                    <Icon size={24} />
-                    <span>{label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
