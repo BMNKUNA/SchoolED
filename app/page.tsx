@@ -207,8 +207,7 @@ const newsItems = [
     date: "Jan 2026",
     excerpt:
       "Sponsor a Child is giving one laptop to a needy student who needs it for university — making real change where it matters.",
-    image:
-      "https://images.unsplash.com/photo-1496187832203-d11feb8d55ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
+    image: "/images/laptop-giveaway.jpg",
     content: `
       <h3>2026 Laptop Giveaway — Sponsor a Child</h3>
       <p>SchoolED believes support should change lives in a tangible way. Our 2026 Sponsor a Child competition will award <strong>one laptop</strong> to a deserving student who has been accepted to university but cannot afford the technology they need to study.</p>
@@ -551,9 +550,9 @@ export default function HomePage() {
               <CardHeader>
                 <CardTitle className="flex items-baseline">
                   <School className="w-8 h-8 mr-2 text-blue-800" />
-                  <Counter end={45} duration={2} />+
+                  <Counter end={16} duration={2} />+
                 </CardTitle>
-                <CardDescription className="text-lg">Partner Schools</CardDescription>
+                <CardDescription className="text-lg">Schools Served</CardDescription>
               </CardHeader>
             </Card>
             <Card className="bg-white/90 backdrop-blur-lg border-none shadow-lg">

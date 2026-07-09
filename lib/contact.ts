@@ -8,6 +8,14 @@ export const contact = {
     tel: "+27653890723",
     whatsapp: "27653890723",
   },
+  address: {
+    lines: [
+      "House 140 Mikkadesh",
+      "50 Vergelegen Street",
+      "Witpoortjie",
+      "1724",
+    ],
+  },
 } as const
 
 export const officeTelUrl = `tel:${contact.office.tel}`

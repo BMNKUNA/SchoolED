@@ -75,4 +75,9 @@ Office: 011 771 2917
 
 Cell / WhatsApp: 065 389 0723
 
-Remote
+Address:
+
+House 140 Mikkadesh
+50 Vergelegen Street
+Witpoortjie
+1724

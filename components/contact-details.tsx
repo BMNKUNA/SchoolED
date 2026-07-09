@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Phone, Globe, Clock, Calendar } from "lucide-react"
+import { Phone, MapPin, Clock, Calendar } from "lucide-react"
 import { FaWhatsapp } from "react-icons/fa"
 import { cellTelUrl, contact, officeTelUrl, whatsappUrl } from "@/lib/contact"
 
@@ -44,9 +44,18 @@ export default function ContactDetails() {
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
-        <Globe className="h-6 w-6 shrink-0 text-blue-600" />
-        <span className="text-gray-700">Remote</span>
+      <div className="flex items-start gap-4">
+        <MapPin className="mt-0.5 h-6 w-6 shrink-0 text-blue-600" />
+        <div>
+          <p className="text-sm font-medium text-gray-500">Address</p>
+          <address className="text-lg not-italic text-gray-700">
+            {contact.address.lines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </address>
+        </div>
       </div>
       <div className="flex items-center gap-4">
         <Clock className="h-6 w-6 shrink-0 text-blue-600" />
