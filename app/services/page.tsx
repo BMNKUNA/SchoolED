@@ -9,6 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { Modal } from "@/components/ui/modal"
+import { matricSuitsGallery, MATRIC_SUITS_GALLERY_HREF } from "@/lib/matric-suits-gallery"
 
 // Define service details with extended information and Unsplash images
 const services = [
@@ -125,6 +126,26 @@ const services = [
         "Group ordering discounts for schools",
       ],
       gallery: ["/images/matric-jacket.png"],
+    },
+  },
+  {
+    id: "matric-dance",
+    title: "Matric Dance Suits",
+    description: "Elegant and affordable suits for matric dances and formal events",
+    icon: <Shirt className="h-8 w-8 text-slate-700" />,
+    image: matricSuitsGallery[0].src,
+    galleryHref: MATRIC_SUITS_GALLERY_HREF,
+    details: {
+      description:
+        "We offer elegant and affordable suits for matric dances and formal events. Our collection includes a variety of styles and sizes to ensure every student looks their best on this special occasion.",
+      features: [
+        "Modern and classic styles to suit all preferences",
+        "High-quality fabrics and tailoring",
+        "Affordable pricing for students",
+        "Fitting services available",
+        "Accessories to complete the look",
+      ],
+      gallery: matricSuitsGallery.map((photo) => photo.src),
     },
   },
   {
@@ -253,13 +274,22 @@ export default function ServicesPage() {
                     <CardDescription>{service.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Button
-                      variant="ghost"
-                      className="group-hover:translate-x-2 transition-transform text-blue-800"
-                      onClick={() => openServiceModal(service)}
-                    >
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    <div className="flex flex-col gap-2">
+                      <Button
+                        variant="ghost"
+                        className="group-hover:translate-x-2 transition-transform text-blue-800"
+                        onClick={() => openServiceModal(service)}
+                      >
+                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                      {"galleryHref" in service && service.galleryHref && (
+                        <Link href={service.galleryHref}>
+                          <Button variant="outline" className="w-full border-blue-200 text-blue-800 hover:bg-blue-50">
+                            View Gallery
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               ))}
@@ -331,15 +361,24 @@ export default function ServicesPage() {
                 </ul>
               </div>
 
-            <div className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-3 border-t pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <Button variant="outline" onClick={() => setIsModalOpen(false)}>
                   Close
                 </Button>
-                <Link href="/contact">
-                  <Button className="bg-blue-800 hover:bg-blue-700">
-                    Request a Quote <ExternalLink className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
+                <div className="flex flex-col gap-2 sm:flex-row">
+                  {"galleryHref" in selectedService && selectedService.galleryHref && (
+                    <Link href={selectedService.galleryHref}>
+                      <Button variant="outline" className="w-full border-blue-200 text-blue-800 hover:bg-blue-50 sm:w-auto">
+                        View Full Gallery <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
+                  )}
+                  <Link href="/contact">
+                    <Button className="w-full bg-blue-800 hover:bg-blue-700 sm:w-auto">
+                      Request a Quote <ExternalLink className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </Modal>

@@ -18,9 +18,9 @@ const staffMembers = [
     photo: company.founder.photo,
   },
   {
-    name: "Lindiwe Khumalo",
-    role: "Operations Manager",
-    description: "Coordinates orders, production timelines, and deliveries for schools across Gauteng.",
+    name: "Ed Mtoto",
+    role: "Lead Tailor",
+    description: "Leads tailoring, fittings, and finishing for uniforms, matric wear, and custom school orders.",
   },
   {
     name: "Sipho Ndlovu",
@@ -28,9 +28,9 @@ const staffMembers = [
     description: "Manages uniform manufacturing, quality checks, and bulk school order fulfilment.",
   },
   {
-    name: "Nomsa Dlamini",
-    role: "Client Relations",
-    description: "Supports schools with quotes, follow-ups, and day-to-day account communication.",
+    name: "Thubalethu Njapha",
+    role: "IT Specialist",
+    description: "Supports school websites, digital tools, and technical solutions for SchoolED and partner schools.",
   },
 ]
 

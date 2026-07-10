@@ -22,6 +22,7 @@ import Navigation from "@/components/navigation"
 import Footer from "@/components/footer"
 import { Modal } from "@/components/ui/modal"
 import { getYearsInBusiness } from "@/lib/contact"
+import { matricSuitsGallery, MATRIC_SUITS_GALLERY_HREF } from "@/lib/matric-suits-gallery"
 
 // Hero slider images
 const heroImages = [
@@ -128,6 +129,7 @@ const services = [
     title: "Matric Dance Suits",
     excerpt: "Elegant and affordable suits and dresses for matric dances and formal events.",
     icon: "👔",
+    galleryHref: MATRIC_SUITS_GALLERY_HREF,
     details: {
       description:
         "We offer elegant and affordable suits for matric dances and formal events. Our collection includes a variety of styles and sizes to ensure every student looks their best on this special occasion.",
@@ -138,8 +140,6 @@ const services = [
         "Fitting services available",
         "Accessories to complete the look",
       ],
-      image:
-        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80",
     },
   },
   {
@@ -597,13 +597,22 @@ export default function HomePage() {
                   <p>{service.excerpt}</p>
                 </CardContent>
                 <CardContent>
-                  <Button
-                    variant="ghost"
-                    className="mt-2 text-blue-800 hover:text-blue-700"
-                    onClick={() => openServiceModal(service)}
-                  >
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <div className="flex flex-col gap-2">
+                    <Button
+                      variant="ghost"
+                      className="mt-2 text-blue-800 hover:text-blue-700"
+                      onClick={() => openServiceModal(service)}
+                    >
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                    {"galleryHref" in service && service.galleryHref && (
+                      <Link href={service.galleryHref}>
+                        <Button variant="outline" className="w-full border-blue-200 text-blue-800 hover:bg-blue-50">
+                          View Gallery
+                        </Button>
+                      </Link>
+                    )}
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -660,14 +669,31 @@ export default function HomePage() {
       {selectedService && (
         <Modal isOpen={isServiceModalOpen} onClose={() => setIsServiceModalOpen(false)} title={selectedService.title}>
           <div className="space-y-6">
-            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
-              <Image
-                src={selectedService.details.image || "/placeholder.svg"}
-                alt={selectedService.title}
-                fill
-                className="object-cover"
-              />
-            </div>
+            {"galleryHref" in selectedService && selectedService.galleryHref ? (
+              <div className="space-y-4">
+                <div className="grid grid-cols-3 gap-2">
+                  {matricSuitsGallery.slice(0, 3).map((photo) => (
+                    <div key={photo.src} className="relative aspect-[4/5] overflow-hidden rounded-lg">
+                      <Image src={photo.src} alt={photo.title} fill className="object-cover" sizes="200px" />
+                    </div>
+                  ))}
+                </div>
+                <Link href={selectedService.galleryHref}>
+                  <Button className="w-full bg-blue-800 hover:bg-blue-700">
+                    View Full Gallery <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            ) : (
+              <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={selectedService.details.image || "/placeholder.svg"}
+                  alt={selectedService.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
 
             <div>
               <h3 className="text-xl font-semibold mb-2">About this Service</h3>
