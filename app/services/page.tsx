@@ -316,12 +316,12 @@ export default function ServicesPage() {
         {selectedService && (
           <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={selectedService.title}>
             <div className="space-y-6">
-              <div className="relative h-64 md:h-80 rounded-lg overflow-hidden">
+              <div className="relative h-64 md:h-80 rounded-lg overflow-hidden bg-gray-100">
                 <Image
                   src={selectedService.details.gallery[activeImageIndex] || "/placeholder.svg"}
                   alt={selectedService.title}
                   fill
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
 

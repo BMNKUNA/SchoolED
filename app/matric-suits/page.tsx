@@ -116,17 +116,17 @@ export default function MatricSuitsGalleryPage() {
                 <button
                   type="button"
                   onClick={() => openLightbox(activeIndex)}
-                  className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+                  className="group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl sm:aspect-[4/3]"
                 >
                   <Image
                     src={featured.src}
                     alt={featured.title}
                     fill
                     priority
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="object-contain transition-transform duration-700 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-left">
                     <p className="text-sm text-blue-200">Featured Look</p>
                     <h2 className="text-2xl font-semibold">{featured.title}</h2>
@@ -193,12 +193,13 @@ export default function MatricSuitsGalleryPage() {
                   onClick={() => openLightbox(index)}
                   className="group mb-4 block w-full break-inside-avoid overflow-hidden rounded-xl border border-white/10 bg-slate-900 text-left shadow-lg"
                 >
-                  <div className="relative aspect-[4/5] w-full overflow-hidden">
+                  <div className="w-full overflow-hidden">
                     <Image
                       src={photo.src}
                       alt={photo.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      width={0}
+                      height={0}
+                      className="h-auto w-full transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
